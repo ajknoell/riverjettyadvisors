@@ -1,0 +1,14 @@
+{
+    "project": "2943887341577567994",
+    "forms": {
+        "contactForm": {
+            "name": "River Jetty Advisors Contact",
+            "actions": [
+                {
+                    "type": "email",
+                    "to": "andrew@riverjettyadvisors.com"
+                }
+            ]
+        }
+    }
+}
