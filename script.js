@@ -61,6 +61,28 @@
         }
     }
 
+    // ---- Scroll reveal ----
+    var revealElements = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+        for (var r = 0; r < revealElements.length; r++) {
+            revealObserver.observe(revealElements[r]);
+        }
+    } else {
+        for (var f = 0; f < revealElements.length; f++) {
+            revealElements[f].classList.add('revealed');
+        }
+    }
+
     // ---- Contact form ----
     var form = document.getElementById('contact-form');
     var formStatus = document.getElementById('form-status');
